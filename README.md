@@ -4,6 +4,8 @@ jqw is a compact jq workbench that transforms JSON entirely in your browser.
 Paste one JSON value, write a jq query, and copy the formatted result. No server
 receives the input.
 
+[Open jqw](https://potato4d.github.io/jqw/)
+
 ## Features
 
 - Browser-native jq powered by WebAssembly in a dedicated Worker
@@ -45,8 +47,10 @@ npm run test:e2e   # browser integration tests against the built artifact
 ```
 
 `npm run build` creates the static application in `dist/`. It can be served by
-any static host, including from a subpath. Deployment automation and PWA support
-are intentionally outside this first release.
+any static host, including from a subpath. Pushes to `master` verify the app and
+publish that directory to GitHub Pages through
+[the deployment workflow](.github/workflows/deploy-pages.yml). PWA support is
+intentionally outside this release.
 
 ## Browser support
 
