@@ -1,0 +1,24 @@
+# Dependencies and generated output
+node_modules/
+dist/
+coverage/
+.next/
+.vinext/
+out/
+playwright-report/
+test-results/
+*.tsbuildinfo
+
+# Local tooling and environment
+.wrangler/
+.vite/
+.env
+.env.*
+!.env.example
+*.local
+*.log
+
+# Editor and operating-system files
+.DS_Store
+.idea/
+.vscode/
