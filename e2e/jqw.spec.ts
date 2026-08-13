@@ -40,7 +40,7 @@ test("runs jq, reports errors, formats JSON, and copies output", async ({
   if (browserName === "chromium") {
     await page.getByRole("button", { name: "Copy output" }).click();
     await expect(
-      page.getByRole("button", { name: "Copy output" }),
+      page.getByRole("button", { name: "Copied output" }),
     ).toContainText("Copied");
     await expect
       .poll(() => page.evaluate(() => navigator.clipboard.readText()))

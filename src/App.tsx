@@ -234,6 +234,12 @@ function QueryPane({
   >("idle");
   const copyResetTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
   const canCopy = state.phase === "success" && state.output.length > 0;
+  const copyButtonLabel =
+    copyStatus === "copied"
+      ? "Copied output"
+      : copyStatus === "failed"
+        ? "Retry copying output"
+        : "Copy output";
 
   useEffect(
     () => () => {
@@ -343,7 +349,7 @@ function QueryPane({
           size="sm"
           onClick={copyOutput}
           disabled={!canCopy}
-          aria-label="Copy output"
+          aria-label={copyButtonLabel}
           className={cn(
             "w-[6.25rem]",
             copyStatus === "copied" &&
