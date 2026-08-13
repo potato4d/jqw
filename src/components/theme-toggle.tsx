@@ -13,12 +13,13 @@ export function ThemeToggle({ theme, onToggle }: ThemeToggleProps) {
   return (
     <Button
       type="button"
-      variant="ghost"
+      variant="toolbar"
       size="icon"
       onClick={onToggle}
       aria-label={`Switch to ${nextTheme} theme`}
       title={`Switch to ${nextTheme} theme`}
       data-testid="theme-toggle"
+      className="text-muted-foreground hover:text-foreground"
     >
       {theme === "dark" ? (
         <Sun aria-hidden="true" />

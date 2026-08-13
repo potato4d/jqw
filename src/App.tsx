@@ -1,5 +1,6 @@
 import {
   AlertTriangle,
+  AlignLeft,
   Braces,
   Check,
   Clipboard,
@@ -85,11 +86,13 @@ function JsonPane({
         </div>
         <Button
           type="button"
-          variant="outline"
+          variant="toolbar"
           size="sm"
           onClick={onFormat}
+          aria-label="Format JSON"
         >
-          Format JSON
+          <AlignLeft aria-hidden="true" />
+          Format
         </Button>
       </div>
       <div className="min-h-0 flex-1">
@@ -194,11 +197,12 @@ function ResultBody({ state, theme, onStop }: ResultBodyProps) {
             </p>
             <Button
               type="button"
-              variant="outline"
+              variant="toolbar"
               size="sm"
               onClick={onStop}
+              className="border-destructive/20 bg-destructive/5 text-destructive hover:border-destructive/30 hover:bg-destructive/10 hover:text-destructive"
             >
-              <Square aria-hidden="true" className="fill-current" />
+              <Square aria-hidden="true" className="size-2.5 fill-current" />
               Stop
             </Button>
           </div>
@@ -335,11 +339,16 @@ function QueryPane({
         </div>
         <Button
           type="button"
-          variant="ghost"
+          variant="toolbar"
           size="sm"
           onClick={copyOutput}
           disabled={!canCopy}
           aria-label="Copy output"
+          className={cn(
+            "w-[6.25rem]",
+            copyStatus === "copied" &&
+              "border-emerald-500/20 bg-emerald-500/10 text-emerald-700 hover:bg-emerald-500/10 hover:text-emerald-700 dark:text-emerald-300",
+          )}
         >
           {copyStatus === "copied" ? (
             <Check aria-hidden="true" />
@@ -349,7 +358,7 @@ function QueryPane({
           {copyStatus === "copied"
             ? "Copied"
             : copyStatus === "failed"
-              ? "Copy failed"
+              ? "Retry"
               : "Copy"}
         </Button>
         <span className="sr-only" aria-live="polite">
