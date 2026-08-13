@@ -8,6 +8,9 @@ const rootDirectory = path.dirname(fileURLToPath(import.meta.url));
 
 export default defineConfig({
   base: "./",
+  build: {
+    chunkSizeWarningLimit: 750,
+  },
   plugins: [react(), tailwindcss()],
   resolve: {
     alias: {
@@ -18,5 +21,6 @@ export default defineConfig({
     environment: "jsdom",
     setupFiles: "./src/test/setup.ts",
     css: true,
+    include: ["src/**/*.{test,spec}.{ts,tsx}"],
   },
 });

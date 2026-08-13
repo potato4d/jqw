@@ -1,5 +1,10 @@
 (() => {
-  const storedTheme = window.localStorage.getItem("jqw-theme");
+  let storedTheme;
+  try {
+    storedTheme = window.localStorage.getItem("jqw-theme");
+  } catch {
+    storedTheme = undefined;
+  }
   const theme =
     storedTheme === "light" || storedTheme === "dark"
       ? storedTheme

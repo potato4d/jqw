@@ -105,3 +105,77 @@ input {
 ::selection {
   background: color-mix(in oklab, var(--ring) 30%, transparent);
 }
+
+.code-editor,
+.code-editor > div,
+.code-editor .cm-editor {
+  height: 100%;
+}
+
+.code-editor .cm-editor {
+  background: transparent !important;
+  color: var(--foreground);
+  font-family: var(--font-mono);
+  font-size: 0.8125rem;
+}
+
+.code-editor .cm-editor.cm-focused {
+  outline: 2px solid color-mix(in oklab, var(--ring) 75%, transparent);
+  outline-offset: -2px;
+}
+
+.code-editor .cm-scroller {
+  line-height: 1.65;
+  overscroll-behavior: contain;
+}
+
+.code-editor .cm-content {
+  min-width: max-content;
+  padding-block: 0.75rem;
+  caret-color: var(--foreground);
+}
+
+.code-editor .cm-line {
+  padding-inline: 0.75rem 1.5rem;
+}
+
+.code-editor .cm-gutters {
+  border-right: 1px solid var(--border) !important;
+  background: color-mix(in oklab, var(--muted) 55%, var(--card)) !important;
+  color: var(--muted-foreground) !important;
+}
+
+.code-editor .cm-gutterElement {
+  padding-inline: 0.65rem 0.5rem;
+}
+
+.code-editor .cm-activeLine,
+.code-editor .cm-activeLineGutter {
+  background: color-mix(in oklab, var(--accent) 65%, transparent) !important;
+}
+
+.code-editor .cm-selectionBackground,
+.code-editor .cm-content ::selection {
+  background: color-mix(in oklab, var(--ring) 28%, transparent) !important;
+}
+
+.code-editor .cm-cursor {
+  border-left-color: var(--foreground);
+}
+
+.code-editor .cm-tooltip {
+  border-color: var(--border);
+  background: var(--popover);
+  color: var(--popover-foreground);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
